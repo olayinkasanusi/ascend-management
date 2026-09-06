@@ -69,7 +69,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-space-xl">
+        <nav className="hidden md:flex items-center gap-space-xl font-montserrat">
           <button
             onClick={() => handleNavAnchor('/', 'about')}
             className={`text-sm font-medium transition-colors relative py-1 cursor-pointer ${
@@ -153,7 +153,7 @@ export default function Navbar() {
           >
             <Link
               to="/apply"
-              className="inline-flex items-center justify-center px-5 py-2 bg-primary-container text-surface text-xs md:text-sm font-semibold tracking-wide rounded-[14px]"
+              className="inline-flex items-center justify-center px-5 py-2 bg-primary-container text-surface text-xs md:text-sm font-semibold tracking-wide rounded-[14px] font-montserrat"
             >
               Apply Now
             </Link>
@@ -181,7 +181,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto', y: 0 }}
             exit={{ opacity: 0, height: 0, y: -10 }}
             transition={{ duration: 0.28, ease: 'easeOut' }}
-            className="overflow-hidden md:hidden glass-modal border-t border-b border-tertiary-fixed-dim/50 px-margin-mobile py-6 mt-2 space-y-4 shadow-xl"
+            className="overflow-hidden md:hidden glass-modal border-t border-b border-tertiary-fixed-dim/50 px-margin-mobile py-6 mt-2 space-y-4 shadow-xl font-montserrat"
           >
             <div className="flex flex-col space-y-3">
               {[
