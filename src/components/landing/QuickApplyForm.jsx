@@ -125,10 +125,22 @@ export default function QuickApplyForm({ onOpenModal }) {
 
             <div className="text-center pt-space-md flex flex-col sm:flex-row items-center justify-center gap-4">
               <motion.button
-                whileHover={{ scale: 1.02, y: -2 }}
+                animate={{
+                  boxShadow: [
+                    '0 4px 14px rgba(69, 40, 60, 0.25)',
+                    '0 8px 26px rgba(123, 83, 92, 0.45)',
+                    '0 4px 14px rgba(69, 40, 60, 0.25)'
+                  ],
+                  scale: [1, 1.015, 1],
+                }}
+                transition={{
+                  duration: 3.5,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
+                whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.97 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-                className="w-full sm:w-auto px-space-2xl py-3.5 bg-primary-container text-surface text-sm font-semibold rounded-[14px] shadow-lg hover:shadow-plum-glow transition-shadow cursor-pointer"
+                className="w-full sm:w-auto px-space-2xl py-3.5 bg-primary-container text-surface text-sm font-semibold rounded-[14px] cursor-pointer"
                 type="submit"
               >
                 Submit Concierge Application

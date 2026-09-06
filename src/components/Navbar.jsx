@@ -135,13 +135,25 @@ export default function Navbar() {
         {/* Trailing Action Buttons */}
         <div className="flex items-center gap-3">
           <motion.div
-            whileHover={{ scale: 1.04, y: -1 }}
+            animate={{
+              boxShadow: [
+                '0 2px 8px rgba(69, 40, 60, 0.2)',
+                '0 4px 18px rgba(123, 83, 92, 0.45)',
+                '0 2px 8px rgba(69, 40, 60, 0.2)'
+              ],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+            whileHover={{ scale: 1.05, y: -1 }}
             whileTap={{ scale: 0.96 }}
-            transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+            className="rounded-[14px]"
           >
             <Link
               to="/apply"
-              className="inline-flex items-center justify-center px-5 py-2 bg-primary-container text-surface text-xs md:text-sm font-semibold tracking-wide rounded-[14px] shadow-sm hover:shadow-plum-glow transition-shadow"
+              className="inline-flex items-center justify-center px-5 py-2 bg-primary-container text-surface text-xs md:text-sm font-semibold tracking-wide rounded-[14px]"
             >
               Apply Now
             </Link>

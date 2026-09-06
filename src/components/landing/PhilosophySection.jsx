@@ -50,15 +50,32 @@ export default function PhilosophySection() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.5, delay: idx * 0.15 }}
-              whileHover={{ y: -8, transition: { duration: 0.25 } }}
-              className="glass-card-interactive rounded-[20px] p-space-xl flex flex-col justify-between group cursor-default"
+              animate={{
+                y: [0, -6, 0],
+              }}
+              transition={{
+                y: {
+                  duration: 4.6 + idx * 0.8,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                  delay: idx * 0.5,
+                },
+                opacity: { duration: 0.5, delay: idx * 0.15 },
+              }}
+              whileHover={{ y: -10, transition: { duration: 0.25 } }}
+              className="glass-card-interactive rounded-[20px] p-space-xl flex flex-col justify-between group cursor-default shadow-md hover:shadow-xl"
             >
               <div>
                 <motion.div
-                  whileHover={{ scale: 1.1, rotate: 6 }}
-                  transition={{ type: 'spring', stiffness: 350, damping: 20 }}
-                  className="w-12 h-12 rounded-xl bg-secondary-fixed/50 border border-secondary-fixed-dim flex items-center justify-center text-primary mb-space-lg"
+                  animate={{ scale: [1, 1.06, 1] }}
+                  transition={{
+                    duration: 3.5 + idx * 0.5,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                    delay: idx * 0.3,
+                  }}
+                  whileHover={{ scale: 1.15, rotate: 6 }}
+                  className="w-12 h-12 rounded-xl bg-secondary-fixed/50 border border-secondary-fixed-dim flex items-center justify-center text-primary mb-space-lg shadow-sm"
                 >
                   <span className="material-symbols-outlined text-secondary text-2xl">{pillar.icon}</span>
                 </motion.div>

@@ -49,9 +49,20 @@ export default function TestimonialsSection() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.5, delay: idx * 0.15 }}
-              whileHover={{ y: -6, transition: { duration: 0.25 } }}
-              className="glass-card-interactive rounded-[20px] p-space-xl flex flex-col justify-between cursor-default"
+              animate={{
+                y: [0, -6, 0],
+              }}
+              transition={{
+                y: {
+                  duration: 4.8 + idx * 0.7,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                  delay: idx * 0.5,
+                },
+                opacity: { duration: 0.5, delay: idx * 0.15 },
+              }}
+              whileHover={{ y: -10, scale: 1.02, transition: { duration: 0.2 } }}
+              className="glass-card-interactive rounded-[20px] p-space-xl flex flex-col justify-between cursor-default shadow-md hover:shadow-xl"
             >
               <div className="mb-space-lg">
                 <div className="flex text-secondary mb-space-md gap-0.5">

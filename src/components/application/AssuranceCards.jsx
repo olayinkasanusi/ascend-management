@@ -31,14 +31,34 @@ export default function AssuranceCards() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: idx * 0.12, duration: 0.5 }}
-          whileHover={{ y: -4, scale: 1.02 }}
-          className="glass-card-interactive rounded-2xl p-5 border border-tertiary-fixed-dim/60 flex flex-col justify-between cursor-default"
+          animate={{
+            y: [0, -6, 0],
+          }}
+          transition={{
+            y: {
+              duration: 4.5 + idx * 0.8,
+              repeat: Infinity,
+              ease: 'easeInOut',
+              delay: idx * 0.6,
+            },
+            opacity: { duration: 0.5, delay: idx * 0.12 },
+          }}
+          whileHover={{ y: -10, scale: 1.03, transition: { duration: 0.2 } }}
+          className="glass-card-interactive rounded-2xl p-5 border border-tertiary-fixed-dim/60 flex flex-col justify-between cursor-default shadow-md hover:shadow-xl"
         >
           <div className="flex items-center justify-between mb-3">
             <motion.div
-              whileHover={{ scale: 1.15, rotate: 6 }}
-              className="w-8 h-8 rounded-full bg-secondary-container/50 flex items-center justify-center text-primary"
+              animate={{
+                scale: [1, 1.06, 1],
+              }}
+              transition={{
+                duration: 3 + idx,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: idx * 0.4,
+              }}
+              whileHover={{ scale: 1.2, rotate: 6 }}
+              className="w-8 h-8 rounded-full bg-secondary-container/50 flex items-center justify-center text-primary shadow-sm"
             >
               <span className="material-symbols-outlined text-lg text-secondary">{card.icon}</span>
             </motion.div>

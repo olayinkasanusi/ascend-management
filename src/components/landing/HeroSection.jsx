@@ -50,11 +50,23 @@ export default function HeroSection({ onExploreApproach, onScaleGrowth }) {
               className="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md w-full sm:w-auto mb-space-2xl"
             >
               <motion.button
-                whileHover={{ scale: 1.03, y: -2 }}
+                animate={{
+                  boxShadow: [
+                    '0 4px 14px rgba(69, 40, 60, 0.25)',
+                    '0 8px 26px rgba(123, 83, 92, 0.45)',
+                    '0 4px 14px rgba(69, 40, 60, 0.25)'
+                  ],
+                  scale: [1, 1.015, 1],
+                }}
+                transition={{
+                  duration: 3.5,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
+                whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.96 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 25 }}
                 onClick={onScaleGrowth}
-                className="inline-flex items-center justify-center px-space-xl py-3.5 bg-primary-container text-surface text-sm font-semibold rounded-[14px] shadow-md hover:shadow-plum-glow transition-shadow text-center cursor-pointer"
+                className="inline-flex items-center justify-center px-space-xl py-3.5 bg-primary-container text-surface text-sm font-semibold rounded-[14px] text-center cursor-pointer"
               >
                 Scale Your Growth
               </motion.button>
@@ -125,16 +137,28 @@ export default function HeroSection({ onExploreApproach, onScaleGrowth }) {
 
                 {/* Floating Glass Metric Badge */}
                 <motion.div
-                  initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{ delay: 0.6, type: 'spring', stiffness: 280, damping: 22 }}
-                  whileHover={{ scale: 1.03, y: -2 }}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+                    y: [0, -7, 0],
+                  }}
+                  transition={{
+                    opacity: { delay: 0.6, duration: 0.5 },
+                    scale: { delay: 0.6, type: 'spring', stiffness: 280, damping: 22 },
+                    y: { duration: 4.5, repeat: Infinity, ease: 'easeInOut' },
+                  }}
+                  whileHover={{ scale: 1.04, y: -9 }}
                   className="absolute bottom-6 left-6 right-6 glass-container-elevated rounded-[18px] p-4 flex items-center justify-between border border-tertiary-fixed-dim/80 shadow-lg cursor-default"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-secondary-fixed/60 flex items-center justify-center text-primary shadow-sm">
+                    <motion.div
+                      animate={{ scale: [1, 1.08, 1] }}
+                      transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                      className="w-10 h-10 rounded-full bg-secondary-fixed/60 flex items-center justify-center text-primary shadow-sm"
+                    >
                       <span className="material-symbols-outlined text-secondary text-xl">query_stats</span>
-                    </div>
+                    </motion.div>
                     <div>
                       <div className="text-[11px] font-semibold text-outline uppercase tracking-wider">Verified Benchmark</div>
                       <div className="text-sm font-semibold text-primary">Over 4.8x Avg. Elevation</div>

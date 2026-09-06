@@ -43,12 +43,30 @@ export default function ConfidentialityBanner() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.2 + idx * 0.1 }}
-                  whileHover={{ y: -4, scale: 1.02 }}
-                  className="glass-container-elevated rounded-[16px] p-space-md border border-tertiary-fixed-dim/70 shadow-sm cursor-default"
+                  animate={{
+                    y: [0, -5, 0],
+                  }}
+                  transition={{
+                    y: {
+                      duration: 4.2 + idx * 0.7,
+                      repeat: Infinity,
+                      ease: 'easeInOut',
+                      delay: idx * 0.4,
+                    },
+                    opacity: { duration: 0.5, delay: 0.2 + idx * 0.1 },
+                  }}
+                  whileHover={{ y: -8, scale: 1.03 }}
+                  className="glass-container-elevated rounded-[16px] p-space-md border border-tertiary-fixed-dim/70 shadow-sm hover:shadow-md cursor-default"
                 >
                   <motion.span
-                    whileHover={{ scale: 1.15, rotate: 6 }}
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{
+                      duration: 3 + idx * 0.5,
+                      repeat: Infinity,
+                      ease: 'easeInOut',
+                      delay: idx * 0.3,
+                    }}
+                    whileHover={{ scale: 1.25, rotate: 6 }}
                     className="material-symbols-outlined text-secondary mb-1 text-2xl inline-block"
                   >
                     {badge.icon}

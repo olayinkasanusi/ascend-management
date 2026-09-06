@@ -14,9 +14,9 @@ export default function ServicesCtaBanner() {
       >
         <div className="absolute inset-0 ambient-glow-rose pointer-events-none -z-10"></div>
         <motion.span
-          animate={{ scale: [1, 1.04, 1] }}
-          transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-          className="inline-block px-4 py-1.5 rounded-full bg-secondary-fixed/70 border border-outline-variant/40 text-xs font-semibold text-secondary uppercase tracking-widest mb-space-md cursor-default"
+          animate={{ scale: [1, 1.05, 1] }}
+          transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+          className="inline-block px-4 py-1.5 rounded-full bg-secondary-fixed/70 border border-outline-variant/40 text-xs font-semibold text-secondary uppercase tracking-widest mb-space-md cursor-default shadow-sm"
         >
           Selective Roster Representation
         </motion.span>
@@ -27,14 +27,26 @@ export default function ServicesCtaBanner() {
           Inquire confidentially. We review creator applications on a selective, rolling basis.
         </p>
         <motion.div
-          whileHover={{ scale: 1.04, y: -2 }}
+          animate={{
+            scale: [1, 1.025, 1],
+            boxShadow: [
+              '0 4px 14px rgba(69, 40, 60, 0.25)',
+              '0 10px 32px rgba(123, 83, 92, 0.45)',
+              '0 4px 14px rgba(69, 40, 60, 0.25)'
+            ],
+          }}
+          transition={{
+            duration: 3.2,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+          whileHover={{ scale: 1.06, y: -2 }}
           whileTap={{ scale: 0.96 }}
-          transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-          className="inline-block"
+          className="inline-block rounded-xl"
         >
           <Link
             to="/apply"
-            className="inline-flex items-center justify-center bg-primary-container text-surface px-8 py-4 rounded-xl text-sm font-semibold hover:shadow-plum-glow-lg transition-shadow border border-primary-container"
+            className="inline-flex items-center justify-center bg-primary-container text-surface px-8 py-4 rounded-xl text-sm font-semibold border border-primary-container"
           >
             Apply for Representation Now
           </Link>

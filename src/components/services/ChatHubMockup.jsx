@@ -34,13 +34,25 @@ export default function ChatHubMockup() {
     >
       <div className="absolute -inset-4 ambient-glow-rose rounded-3xl blur-xl -z-10"></div>
 
-      {/* Mockup Card Container */}
-      <div className="glass-container-elevated rounded-2xl p-space-lg border border-tertiary-fixed-dim shadow-2xl relative space-y-space-md">
+      {/* Mockup Card Container with continuous levitation */}
+      <motion.div
+        animate={{
+          y: [0, -6, 0],
+        }}
+        transition={{
+          duration: 5.5,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }}
+        className="glass-container-elevated rounded-2xl p-space-lg border border-tertiary-fixed-dim shadow-2xl relative space-y-space-md"
+      >
         {/* Header bar of mock UI */}
         <div className="flex items-center justify-between border-b border-outline-variant/30 pb-space-sm">
           <div className="flex items-center gap-3">
             <motion.div
-              whileHover={{ scale: 1.1, rotate: 6 }}
+              animate={{ scale: [1, 1.08, 1] }}
+              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+              whileHover={{ scale: 1.15, rotate: 6 }}
               className="w-10 h-10 rounded-full bg-primary-container text-surface flex items-center justify-center font-editorial font-semibold shadow-sm"
             >
               A
@@ -50,10 +62,14 @@ export default function ChatHubMockup() {
               <p className="text-xs text-outline">Live 24/7 Global Desk</p>
             </div>
           </div>
-          <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs bg-secondary-fixed text-primary font-bold">
+          <motion.span
+            animate={{ scale: [1, 1.03, 1] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+            className="inline-flex items-center px-2.5 py-1 rounded-full text-xs bg-secondary-fixed text-primary font-bold shadow-sm"
+          >
             <span className="w-2 h-2 rounded-full bg-emerald-500 mr-1.5 animate-pulse"></span>
             Active Protocol
-          </span>
+          </motion.span>
         </div>
 
         {/* VIP Message simulated threads with staggered slide */}
@@ -112,7 +128,7 @@ export default function ChatHubMockup() {
             ))}
           </div>
         </motion.div>
-      </div>
+      </motion.div>
     </motion.div>
   );
 }

@@ -349,11 +349,24 @@ export default function WrittenApplicationView({ onOpenModal }) {
                   &larr; Back to Step 02
                 </motion.button>
                 <motion.button
-                  whileHover={{ scale: submitting ? 1 : 1.02, y: submitting ? 0 : -1 }}
+                  animate={{
+                    boxShadow: [
+                      '0 4px 14px rgba(69, 40, 60, 0.25)',
+                      '0 8px 26px rgba(123, 83, 92, 0.45)',
+                      '0 4px 14px rgba(69, 40, 60, 0.25)'
+                    ],
+                    scale: submitting ? 1 : [1, 1.015, 1],
+                  }}
+                  transition={{
+                    duration: 3.5,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }}
+                  whileHover={{ scale: submitting ? 1 : 1.04, y: submitting ? 0 : -1 }}
                   whileTap={{ scale: submitting ? 1 : 0.97 }}
                   disabled={submitting}
                   type="submit"
-                  className="w-full sm:w-auto min-w-[280px] py-3.5 sm:py-4 px-8 rounded-xl text-xs sm:text-sm font-semibold bg-primary-container text-surface hover:bg-primary shadow-plum-glow transition-all duration-200 active:scale-95 inline-flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full sm:w-auto min-w-[280px] py-3.5 sm:py-4 px-8 rounded-xl text-xs sm:text-sm font-semibold bg-primary-container text-surface hover:bg-primary inline-flex items-center justify-center gap-2 cursor-pointer"
                 >
                   {submitting ? (
                     <>

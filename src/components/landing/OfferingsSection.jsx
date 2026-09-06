@@ -86,15 +86,35 @@ export default function OfferingsSection() {
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.5, delay: idx * 0.12 }}
-              whileHover={{ y: -6, transition: { duration: 0.25 } }}
-              className="glass-card-interactive rounded-[20px] p-space-xl flex flex-col justify-between group cursor-default"
+              animate={{
+                y: [0, -5, 0],
+              }}
+              transition={{
+                y: {
+                  duration: 5.5 + idx * 0.8,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                  delay: idx * 0.6,
+                },
+                opacity: { duration: 0.5, delay: idx * 0.12 },
+              }}
+              whileHover={{ y: -10, scale: 1.015, transition: { duration: 0.25 } }}
+              className="glass-card-interactive rounded-[20px] p-space-xl flex flex-col justify-between group cursor-default shadow-sm hover:shadow-xl"
             >
               <div>
                 <div className="flex items-center justify-between mb-space-lg">
                   <motion.div
-                    whileHover={{ rotate: 8, scale: 1.05 }}
-                    className="w-12 h-12 rounded-[14px] bg-secondary-fixed/50 border border-tertiary-fixed-dim/80 flex items-center justify-center transition-colors group-hover:bg-secondary-fixed/80"
+                    animate={{
+                      scale: [1, 1.05, 1],
+                    }}
+                    transition={{
+                      duration: 3.5,
+                      repeat: Infinity,
+                      ease: 'easeInOut',
+                      delay: idx * 0.4,
+                    }}
+                    whileHover={{ rotate: 8, scale: 1.15 }}
+                    className="w-12 h-12 rounded-[14px] bg-secondary-fixed/50 border border-tertiary-fixed-dim/80 flex items-center justify-center transition-colors group-hover:bg-secondary-fixed/80 shadow-sm"
                   >
                     <span className="material-symbols-outlined text-secondary text-2xl">{item.icon}</span>
                   </motion.div>
